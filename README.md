@@ -1,7 +1,7 @@
 # area-foliar
 Diagnose em area foliar - Em construção
 
-![Alt text](resultado.jpg?raw=true "Title"
+![Screenshot](resultado.jpg)
 
 # Determinacao de área foliar 
 

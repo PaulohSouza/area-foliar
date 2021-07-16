@@ -13,7 +13,7 @@ im=readImage("folha_teste.jpg")      #Minha image a ser testada
 plot(im)
 ref=readImage("referencia.jpg")      #Quadrado vermelho 25 cm²
 plot(ref)
-fundo=readImage("fundo.jpg")         # recorte com o fundo branco
+fundo=readImage("fundo.jpg")         #recorte com o fundo branco
 plot(fundo)
 folhas=readImage("compilado_cores_folhas.jpg")  #Compilado com as cores das folhas
 plot(folhas)
@@ -42,7 +42,7 @@ mat1=rbind(cbind(mfundo,1),cbind(mfolhas,0),cbind(mref,0))
 colnames(mat1)[4]="Y"
 mat1=data.frame(mat1)
 
-#Aplicando a função glm linear
+# Aplicando a função glm linear
 modelo1=glm(Y~R+G+B,data=mat1,family = binomial("logit"))
 
 # Agora utilar o modelo para predizer o objeto im - a imagem inicial
@@ -61,7 +61,7 @@ im2@.Data=MPred1
 # exibir imagem com fundo separado das folhas
 plot(im2)
 
-#Agora criar matriz para separar folha do quadrado de referencia
+# Agora criar matriz para separar folha do quadrado de referencia
 mat2=rbind(cbind(mfolhas,0),cbind(mref,1))
 colnames(mat2)=c("R","G","B","Y")
 mat2=data.frame(mat2)

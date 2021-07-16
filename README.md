@@ -18,31 +18,31 @@ plot(fundo)
 folhas=readImage("compilado_cores_folhas.jpg")  #Compilado com as cores das folhas
 plot(folhas)
 
-# Transformando os vetores em uma matriz de referência - cor vermelha
+# Transformando os vetores em uma matriz de referencia - cor vermelha
 mref=cbind(c(ref@.Data[,,1]),c(ref@.Data[,,2]),c(ref@.Data[,,3]))
 mref=mref[sample(1:nrow(mref)),]
 mref=mref[1:50000,]
 colnames(mref)=c("R","G","B")
 
-# Transformando em uma matriz de referência - cor de fundo
+# Transformando em uma matriz de referencia - cor de fundo
 mfundo=cbind(c(fundo@.Data[,,1]),c(fundo@.Data[,,2]),c(fundo@.Data[,,3]))
 mfundo=mfundo[sample(1:nrow(mfundo)),]
 mfundo=mfundo[1:20000,]
 colnames(mfundo)=c("R","G","B")
 
 
-# Transformando em uma matriz de referência - cor de fundo
+# Transformando em uma matriz de referencia - cor das folhas
 mfolhas=cbind(c(folhas@.Data[,,1]),c(folhas@.Data[,,2]),c(folhas@.Data[,,3]))
 mfolhas=mfolhas[sample(1:nrow(mfolhas)),]
 mfolhas=mfolhas[1:50000,]
 colnames(mfolhas)=c("R","G","B")
 
-# Matriz contendo os dados do undo, folhas e referencia efetuados
+# Matriz contendo os dados do fundo, folhas e referencia efetuados
 mat1=rbind(cbind(mfundo,1),cbind(mfolhas,0),cbind(mref,0))
 colnames(mat1)[4]="Y"
 mat1=data.frame(mat1)
 
-# Aplicando a função glm linear
+# Aplicando a funcao glm linear
 modelo1=glm(Y~R+G+B,data=mat1,family = binomial("logit"))
 
 # Agora utilar o modelo para predizer o objeto im - a imagem inicial
@@ -89,7 +89,7 @@ AreaCor=Area*46.75/NumPixelRef
 Coord=computeFeatures.moment(MPred1b)
 Coord=Coord[ID2,]
 
-# plota a imagem com a área foliar
+# plota a imagem com a area foliar
 plot(im)
 text(Coord[,1],Coord[,2],round(AreaCor,2),col="blue",cex=0.8)
 
